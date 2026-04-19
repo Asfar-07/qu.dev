@@ -1,4 +1,4 @@
-package com.example.qdev.model.response;
+package com.example.qudev.model.response;
 
 public class ConnectionDTO {
     final String url;

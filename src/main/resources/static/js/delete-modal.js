@@ -1,0 +1,90 @@
+/* ================================================
+   delete-modal.js
+   Delete Confirmation Modal — qu.dev
+
+   HOW TO USE:
+   1. Add <link rel="stylesheet" href="delete-modal.css"> in your <head>
+   2. Paste delete-modal.html anywhere inside your <body>
+   3. Add <script src="delete-modal.js"></script> before </body>
+   4. On your delete button call:
+        openDeleteModal(buttonElement, 'Survey Name')
+   ================================================ */
+
+// Holds a reference to the card element being targeted for deletion
+let targetCard = null;
+
+/**
+ * Opens the delete confirmation modal.
+ *
+ * @param {HTMLElement} btn   - The delete button that was clicked (used to find the parent card)
+ * @param {string}      name  - The survey name to display inside the modal
+ *
+ * Example usage on a delete button:
+ *   <button onclick="openDeleteModal(this, 'My Survey')">Delete</button>
+ */
+function openDeleteModal(btn, name) {
+  // Walk up the DOM to find the survey card this button belongs to
+  targetCard = btn.closest('.survey-card');
+
+  // Inject the survey name into the modal badge
+  document.getElementById('modal-survey-name').textContent = name;
+
+  // Show the modal
+  document.getElementById('delete-modal').classList.add('open');
+
+  // Prevent background scrolling while modal is open
+  document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Closes the delete modal and resets state.
+ * Called by the Cancel button and the Escape key listener.
+ */
+function closeDeleteModal() {
+  document.getElementById('delete-modal').classList.remove('open');
+  document.body.style.overflow = '';
+  targetCard = null;
+}
+
+/**
+ * Clicking the dark backdrop (overlay) outside the modal box closes it.
+ * The check ensures clicks on the modal box itself are ignored.
+ *
+ * @param {MouseEvent} e
+ */
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('delete-modal')) {
+    closeDeleteModal();
+  }
+}
+
+/**
+ * Confirms deletion:
+ * - Animates the card out (fade + scale down)
+ * - Removes the card from the DOM after animation completes
+ * - Closes the modal
+ *
+ * Replace the contents of this function with your real API delete call,
+ * e.g.:  fetch('/api/surveys/' + surveyId, { method: 'DELETE' })
+ */
+function confirmDelete() {
+  if (!targetCard) return;
+
+  // Animate card out
+  targetCard.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  targetCard.style.opacity = '0';
+  targetCard.style.transform = 'scale(0.92)';
+
+  // Remove from DOM after animation finishes
+  setTimeout(() => {
+    targetCard.remove();
+    closeDeleteModal();
+  }, 300);
+}
+
+// Close modal when user presses the Escape key
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    closeDeleteModal();
+  }
+});

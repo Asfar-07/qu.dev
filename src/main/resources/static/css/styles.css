@@ -21,7 +21,7 @@
 html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
 
 /* ── LAYOUT ── */
-.app { display: flex; min-height: 100vh; }
+.app { display: flex; height: 100vh; }
 
 /* ── SIDEBAR ── */
 .sidebar {

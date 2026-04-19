@@ -1,6 +1,6 @@
-package com.example.qdev.repository;
+package com.example.qudev.repository;
 
-import com.example.qdev.model.question.Questions;
+import com.example.qudev.model.question.Questions;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

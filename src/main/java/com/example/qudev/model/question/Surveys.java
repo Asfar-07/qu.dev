@@ -1,4 +1,4 @@
-package com.example.qdev.model.question;
+package com.example.qudev.model.question;
 
 import jakarta.persistence.*;
 import lombok.Getter;

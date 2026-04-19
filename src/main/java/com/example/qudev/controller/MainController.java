@@ -1,6 +1,6 @@
-package com.example.qdev.controller;
+package com.example.qudev.controller;
 
-import com.example.qdev.model.response.ConnectionDTO;
+import com.example.qudev.model.response.ConnectionDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,14 +25,11 @@ public class MainController {
         return "connection";
     }
 
-    @GetMapping("/questions")
-    public  String Question(){
-        return "questions";
-    }
+
 
     @GetMapping("/documentation")
     public  String Documentation(){
-        return "<h1>DOC</h1>";
+        return "doc";
     }
 
 }
