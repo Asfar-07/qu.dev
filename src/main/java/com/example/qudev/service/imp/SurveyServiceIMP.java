@@ -1,17 +1,17 @@
 package com.example.qudev.service.imp;
 
-import com.example.qudev.model.question.Surveys;
+import com.example.qudev.model.question.Survey;
 import com.example.qudev.model.request.UpdateSurvey;
-import com.example.qudev.repository.SurveysRepo;
+import com.example.qudev.repository.SurveyRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class SurveyServiceIMP implements com.example.qudev.service.SurveyService {
-    final SurveysRepo surveysRepo;
+    final SurveyRepo surveysRepo;
 
-    public SurveyServiceIMP(SurveysRepo surveysRepo) {
+    public SurveyServiceIMP(SurveyRepo surveysRepo) {
         this.surveysRepo = surveysRepo;
     }
 
@@ -21,9 +21,9 @@ public class SurveyServiceIMP implements com.example.qudev.service.SurveyService
     }
 
     @Override
-    public void addNewSurvey(Surveys survey) {
+    public void addNewSurvey(Survey survey) {
 
-        Surveys surveys=surveysRepo.findByKey(survey.getKey()).orElse(null);
+        Survey surveys=surveysRepo.findByKey(survey.getKey()).orElse(null);
         if(surveys != null){
             throw new RuntimeException("Already Exited Key");
         }
@@ -32,7 +32,7 @@ public class SurveyServiceIMP implements com.example.qudev.service.SurveyService
 
     @Override
     public void updateSurvey(String id, UpdateSurvey request) {
-        Surveys item = surveysRepo.findByKey(id)
+        Survey item = surveysRepo.findByKey(id)
                 .orElseThrow(() -> new RuntimeException("Item not found"));
 
         // Partial update logic

@@ -4,17 +4,16 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
 @Table( name = "questions")
-public class Questions {
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(length = 10, updatable = true, nullable = false)
-    private int ver_id;//for version of QS (which update)
 
     @Column( name="q_order", nullable = false)
     private int order;
@@ -35,8 +34,15 @@ public class Questions {
     @Column( nullable = false)
     private boolean active;
 
-    @Column( nullable = false)
-    private String slug; //which sessions need eg:source_of_awareness
+    @ManyToOne
+    @JoinColumn(name = "ver_id", nullable = false)
+    private SurveyVersion surveyVersion;
+
+    @OneToMany( mappedBy = "question",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<QsOption> option;
+
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private List<SurveyResponse> responses;
 
     public enum Type {
         single_choice, multi_choice, text, rating

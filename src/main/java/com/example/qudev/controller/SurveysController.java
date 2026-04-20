@@ -1,7 +1,6 @@
 package com.example.qudev.controller;
 
-import com.example.qudev.model.question.Surveys;
-import com.example.qudev.model.request.UpdateSurvey;
+import com.example.qudev.model.question.Survey;
 import com.example.qudev.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +18,7 @@ public class SurveysController {
     @GetMapping("/surveys")
     public  String getSurvey(Model model){
         List listSurvey=surveyService.listSurvey();
-        Surveys survey=new Surveys();
+        Survey survey=new Survey();
 
         model.addAttribute("survey", survey);
         model.addAttribute("listSurvey", listSurvey);
@@ -27,7 +26,7 @@ public class SurveysController {
     }
 
     @PostMapping("/add/surveys")
-    public String addSurvey(Surveys survey, Model model){
+    public String addSurvey(Survey survey, Model model){
         surveyService.addNewSurvey(survey);
         return "redirect:/surveys";
     }

@@ -1,14 +1,13 @@
 package com.example.qudev.repository;
 
-import com.example.qudev.model.question.Surveys;
+import com.example.qudev.model.question.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface SurveysRepo extends JpaRepository<Surveys,Long> {
+public interface QuestionRepo extends JpaRepository<Question,Long> {
     @Override
-    Optional<Surveys> findById(Long id);
-    Optional<Surveys> findByKey(String key);
+    Optional<Question> findById(Long id);
 }
