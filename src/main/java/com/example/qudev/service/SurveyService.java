@@ -9,6 +9,7 @@ public interface SurveyService {
 
     List<Survey> listSurvey();
     Survey getSurvey(String surveyId);
+
     void addNewSurvey(Survey survey);
     void updateSurvey(String id, UpdateSurvey request);
     void deleteSurvey(Long surveyId);

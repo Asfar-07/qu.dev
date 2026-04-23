@@ -38,7 +38,7 @@ public class SurveyServiceIMP implements com.example.qudev.service.SurveyService
             throw new RuntimeException("Already Exited Key");
         }
         SurveyVersion version=SurveyVersion.builder()
-                .versionName("V1-init")
+                .versionName("V1")
                 .active(true)
                 .survey(survey)
                 .build();
