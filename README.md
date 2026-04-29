@@ -9,7 +9,27 @@
 **qu.dev** is a developer-focused tool that lets you build, manage, and export survey database structures through a clean web interface. Built with Spring Boot and Thymeleaf, it gives developers full control over survey sections, question types, and user response data — all backed by a clean relational MySQL schema.
 
 ---
+## 📸 Screenshots
 
+<div align="center">
+<table>
+<tr>
+<td><img src="./static/image/screenshot/screenshot-1.png" alt="Screenshot 1" width="100%"/></td>
+<td><img src="./static/image/screenshot/screenshot-2.png" alt="Screenshot 2" width="100%"/></td>
+</tr>
+<tr>
+<td><img src="./static/image/screenshot/screenshot-3.png" alt="Screenshot 3" width="100%"/></td>
+<td><img src="./static/image/screenshot/screenshot-4.png" alt="Screenshot 4" width="100%"/></td>
+</tr>
+<tr>
+<td><img src="./static/image/screenshot/screenshot-5.png" alt="Screenshot 5" width="100%"/></td>
+<td><img src="./static/image/screenshot/screenshot-6.png" alt="Screenshot 6" width="100%"/></td>
+</tr>
+<tr>
+<td><img src="./static/image/screenshot/screenshot-7.png" alt="Screenshot 5" width="100%"/></td>
+</tr>
+</table>
+</div>
 ## ✨ Features
 
 - 📋 Create and manage **multiple survey sections**
