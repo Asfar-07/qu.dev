@@ -27,8 +27,6 @@
 </tr>
 <tr>
 <td><img src="./static/image/screenshot/screenshot-7.png" alt="Screenshot 7" width="100%"/></td>
-</tr>
-  <tr>
 <td><img src="./static/image/screenshot/screenshot-8.png" alt="Screenshot 8" width="100%"/></td>
 </tr>
 </table>
